@@ -27,7 +27,7 @@ engines: {
 }
 ```
 ## Setting version in the portal
-You can set specify versions in the Windows Azure portal by adding the settings NODE_RUNTIME and NPM_RUNTIME on the configure tab as show below.
+You can set specify versions in the Windows Azure portal by adding the settings NODE_VERSION and NPM_VERSION on the configure tab as show below.
 
 ![Settings in the portal](https://dl.dropboxusercontent.com/u/6860088/version%20selection.png?size=640x480 "Windows Azure Portal")
 
@@ -43,8 +43,8 @@ Check the logs after deployment is completed to see if any errors occured.
 If you are using the azure-cli, you can also select a version and apply from the shell using `azure site config`
 
 ```bash
-azure site config add NODE_RUNTIME=0.10.x`
-azure site config add NPM_RUNTIME=1.2.x'
+azure site config add NODE_VERSION=0.10.x`
+azure site config add NPM_VERSION=1.2.x'
 ```
 
 Next to apply the changes redeploy your app. First list the deployments.
