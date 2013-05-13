@@ -43,8 +43,8 @@ Check the logs after deployment is completed to see if any errors occured.
 If you are using the azure-cli, you can also select a version and apply from the shell using `azure site config`
 
 ```bash
-azure site config add NODE_VERSION=0.10.x`
-azure site config add NPM_VERSION=1.2.x'
+azure site config add NODE_VERSION=0.10.x
+azure site config add NPM_VERSION=1.2.x
 ```
 
 Next to apply the changes redeploy your app. First list the deployments.
