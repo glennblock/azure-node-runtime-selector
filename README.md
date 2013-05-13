@@ -29,13 +29,13 @@ engines: {
 ## Setting version in the portal
 You can set specify versions in the Windows Azure portal by adding the settings NODE_VERSION and NPM_VERSION on the configure tab as show below.
 
-![Settings in the portal](https://dl.dropboxusercontent.com/u/6860088/version%20selection.png?size=640x480 "Windows Azure Portal")
+![Settings in the portal](https://dl.dropboxusercontent.com/u/6860088/NODE%20APP%20SETTINGS.png "Windows Azure Portal")
 
 Make sure you click "Save" on the bottom to have the settings change take effect.
 
 If the app is already deployed, you can make the version change take effect immediately within the portal by redeploying your last deployment. To do that head to the "Deployment" tab, select your most recent deployment and then click "Redeploy" on the bottom.
 
-![Redeploy](https://dl.dropboxusercontent.com/u/6860088/version%20selection%20redeploy.png?size=640x480 "Redeploying the last deployment")
+![Redeploy](https://dl.dropboxusercontent.com/u/6860088/version%20selection%20redeploy.png "Redeploying the last deployment")
 
 Check the logs after deployment is completed to see if any errors occured.
 
