@@ -33,7 +33,7 @@ You can set specify versions in the Windows Azure portal by adding the settings 
 
 Make sure you click "Save" on the bottom to have the settings change take effect.
 
-If the app is already deployed, you can make the version change take effect immediately within the portal by redeploying your last deployment. To do that head to the "Deployment" tab, select your most recent deployment and then click "Redeploy" on the bottom.
+If the app is already deployed, you can make the version change take effect immediately within the portal by redeploying your last deployment. To do that head to the "Deployments" tab, select your most recent deployment and then click "Redeploy" on the bottom.
 
 ![Redeploy](https://dl.dropboxusercontent.com/u/6860088/version%20selection%20redeploy.png "Redeploying the last deployment")
 
