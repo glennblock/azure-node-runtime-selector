@@ -95,4 +95,4 @@ If you check your app, you should see that it will be running the selected node 
 * npm takes up about 25 megs total (including it's dependencies).
 
 # License
-Apache 2.0
+Apache 2: http://www.apache.org/licenses/LICENSE-2.0.html
