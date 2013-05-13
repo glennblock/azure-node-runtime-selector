@@ -94,4 +94,5 @@ If you check your app, you should see that it will be running the selected node 
 * Each node version that is installed takes up approx 5 meg of storage. 
 * npm takes up about 25 megs total (including it's dependencies).
 
-
+# License
+Apache 2.0
