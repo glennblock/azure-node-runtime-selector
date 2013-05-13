@@ -29,13 +29,13 @@ engines: {
 ## Setting version in the portal
 You can set specify versions in the Windows Azure portal by adding the settings NODE_RUNTIME and NPM_RUNTIME on the configure tab as show below.
 
-![Settings in the portal](https://photos-2.dropbox.com/t/0/AAAePIAMEUl6UvohHsyoBnAnrjBJbAM8IkgqXOUAHLxShA/12/6860088/png/32x32/3/_/1/2/Screen%20Shot%202013-05-13%20at%2012.34.19%20AM.png/uqMBlWbmc8-EfGO6SLTED9R0ugRal2OhgaOv6EAmOxc?size=640x480 "Windows Azure Portal")
+![Settings in the portal](https://dl.dropboxusercontent.com/u/6860088/version%20selection.png?size=640x480 "Windows Azure Portal")
 
 Make sure you click "Save" on the bottom to have the settings change take effect.
 
 If the app is already deployed, you can make the version change take effect immediately within the portal by redeploying your last deployment. To do that head to the "Deployment" tab, select your most recent deployment and then click "Redeploy" on the bottom.
 
-![Redeploy](https://photos-6.dropbox.com/t/0/AAA0qp_AiSZMzI0ma3dhYEfeasQoz8aFFih8lOtkTl7cUw/12/6860088/png/32x32/3/_/1/2/Screen%20Shot%202013-05-13%20at%2012.41.41%20AM.png/dTEgcX7ERA-WT5IY0DFvq4OSVQogxGJpuzCEMn6eSkc?size=640x480 "Redeploying the last deployment")
+![Redeploy](https://dl.dropboxusercontent.com/u/6860088/version%20selection%20redeploy.png?size=640x480 "Redeploying the last deployment")
 
 Check the logs after deployment is completed to see if any errors occured.
 
