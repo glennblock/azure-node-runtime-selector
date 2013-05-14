@@ -66,13 +66,13 @@ fi
 
 installNodist () {
   NODE_EXE="$PROGRAMFILES/nodejs/node.exe"
-  NODIST_NODE_EXE="$APPDATA/node/nodist/bin/node.exe"
-  NPM_CMD="$APPDATA\\node\\nodist\\bin\\npm"
+  NODIST_NODE_EXE="c:/home/node/nodist/bin/node.exe"
+  NPM_CMD="c:/home/node/nodist/bin/npm"
 
   if [[ ! -n "$NODIST_INSTALLED" ]]; then
     echo Installing nodist
-    if [[ ! -e "$APPDATA/node/nodist/bin/node.exe" ]]; then
-      cd $APPDATA
+    if [[ ! -e "c:/home/node/nodist/bin/node.exe" ]]; then
+      cd c:/home
       mkdir node
       cd node
       git clone git://github.com/marcelklehr/nodist.git 2>/dev/null
