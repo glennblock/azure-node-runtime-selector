@@ -4,17 +4,16 @@ var npmVersion='latest';
 var nodeVersion='latest';
 var nodeVersionSetting=null;
 var npmVersionSetting=null;
+var util = require('util');
 
 var packageJson;
-
-if (path.existsSync('./package.json')) {
-	packageJson = require('./package.json');
+var packageJsonPath = process.env.DEPLOYMENT_TARGET + '\\package.json';
+if (path.existsSync(packageJsonPath)) {
+	packageJson = require(packageJsonPath);
 }
 else {
 	packageJson = {};
 }
-
-var iisnodeYml = process.env.DEPLOYMENT_TARGET + "\\iisnode.yml";
 
 writeVersions();
 
@@ -35,11 +34,13 @@ function writeVersions() {
 			nodeVersion = nodeTemp;
 
 		var npmTemp = packageJson.engines.npm;
-		if (npmVersionSettings==null && npmTemp != undefined && npmTemp != null)
+		if (npmVersionSetting==null && npmTemp != undefined && npmTemp != null)
 			npmVersion = npmTemp;
 	}
-	fs.writeFileSync('nodeVersion.tmp', nodeVersion);
-	fs.writeFileSync('npmVersion.tmp', npmVersion);
+
+	var tempBase = process.env.DEPLOYMENT_TARGET + "/../../node/nodist/bin/";
+	fs.writeFileSync(tempBase + 'nodeVersion.tmp', nodeVersion);
+	fs.writeFileSync(tempBase + 'npmVersion.tmp', npmVersion);
 }
 
 /*

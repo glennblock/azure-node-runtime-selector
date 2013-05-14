@@ -4,7 +4,7 @@
 # KUDU Deployment Script
 # ----------------------
 
-# Helpers
+# Helpers 
 # -------
 
 exitWithMessageOnError () {
@@ -89,16 +89,12 @@ installNodeAndNpm() {
   eval "$SELECT_NODE_VERSION"
   NODE_VERSION=`cat nodeVersion.tmp`
   NPM_VERSION=`cat npmVersion.tmp` 
-
   echo "node version: `nodist $NODE_VERSION`"
-
 # Check the locally installed npm to see if it matches the required version. 
 # If a range is specified, it will not match up and so npm will still be invoked.
 # For best performance specify a specific version rather than a semver expression
-
-  MATCHES=`npm ls npm@$NODE_VERSION | grep $NODE_VERSION`
-
-  if [ '$MATCHES' == '0' ]; then
+  MATCH=`npm ls npm@$NPM_VERSION | grep -c $NPM_VERSION`
+  if [[ "$MATCH" == "0" ]]; then
     cmd.exe /c "\"$NPM_CMD\" install npm@$NPM_VERSION"
     exitWithMessageOnError "npm failed"
   fi
