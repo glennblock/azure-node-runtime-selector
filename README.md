@@ -15,6 +15,8 @@ Custom deployment script for choosing any node or npm version for your Azure Web
   * After the initial install it will then download the specified node/npm version.
   * On successive pushes it will not download newer versions unless you update the selected versions.
 
+Note: For npm future deployments will be much faster if you specify a specific version rather than using a semver i.e. "1.8.x". 
+
 # Version selection
 Several options are available for specifying your selected node and npm version.
 
