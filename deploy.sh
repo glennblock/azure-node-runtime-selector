@@ -92,7 +92,12 @@ installNodeAndNpm() {
 
   echo "node version: `nodist $NODE_VERSION`"
 
-  MATCHES=`npm ls npm@$NODE_VERSION --json | grep $NODE_VERSION`
+# Check the locally installed npm to see if it matches the required version. 
+# If a range is specified, it will not match up and so npm will still be invoked.
+# For best performance specify a specific version rather than a semver expression
+
+  MATCHES=`npm ls npm@$NODE_VERSION | grep $NODE_VERSION`
+
   if [ '$MATCHES' == '0' ]; then
     cmd.exe /c "\"$NPM_CMD\" install npm@$NPM_VERSION"
     exitWithMessageOnError "npm failed"
