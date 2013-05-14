@@ -66,32 +66,37 @@ fi
 
 installNodist () {
   NODE_EXE="$PROGRAMFILES/nodejs/node.exe"
-  NODIST_NODE_EXE="c:/home/node/nodist/bin/node.exe"
-  NPM_CMD="c:/home/node/nodist/bin/npm"
+  NODE_RUNTIME_ROOT="$DEPLOYMENT_TARGET/../.."
+  NODIST_NODE_EXE="$NODE_RUNTIME_ROOT/node/nodist/bin/node.exe"
+  NPM_CMD="$NODE_RUNTIME_ROOT/node/nodist/bin/npm"
 
-  if [[ ! -n "$NODIST_INSTALLED" ]]; then
+  if [[ ! -e "$NODE_RUNTIME_ROOT/node/nodist/bin/node.exe" ]]; then
     echo Installing nodist
-    if [[ ! -e "c:/home/node/nodist/bin/node.exe" ]]; then
-      cd c:/home
-      mkdir node
-      cd node
-      git clone git://github.com/marcelklehr/nodist.git 2>/dev/null
-      cd nodist
-      npm install --production
-      cd bin
-      nodist update
-    fi
-  fi 
+    cd $NODE_RUNTIME_ROOT
+    mkdir node
+    cd node
+    git clone git://github.com/marcelklehr/nodist.git 2>/dev/null
+    cd nodist
+    npm install --production
+    cd bin
+    nodist update
+  fi
 }
 
 installNodeAndNpm() {
-  cd $APPDATA\\node\\nodist\\bin
+  cd $NODE_RUNTIME_ROOT/node/nodist/bin
   SELECT_NODE_VERSION="\"$NODE_EXE\" \"$DEPLOYMENT_TARGET/getVersions.js\""
   eval "$SELECT_NODE_VERSION"
   NODE_VERSION=`cat nodeVersion.tmp`
-  NPM_VERSION=`cat npmVersion.tmp`
+  NPM_VERSION=`cat npmVersion.tmp` 
+
   echo "node version: `nodist $NODE_VERSION`"
-  cmd.exe /c "\"$NPM_CMD\" install npm@$NPM_VERSION"
+
+  MATCHES=`npm ls npm@$NODE_VERSION --json | grep $NODE_VERSION`
+  if [ '$MATCHES' == '0' ]; then
+    cmd.exe /c "\"$NPM_CMD\" install npm@$NPM_VERSION"
+    exitWithMessageOnError "npm failed"
+  fi
   echo "npm version: `cmd.exe /c \"\"$NPM_CMD\" -v\"`"
 }
 
@@ -99,7 +104,7 @@ installNodeAndNpm() {
 # Deployment
 # ----------
 
-echo Handling node.js deployment.
+echo Handling node.js deployment. 
 
 # 1. KuduSync
 $KUDU_SYNC_CMD -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
