@@ -23,9 +23,9 @@ Several options are available for specifying your selected node and npm version.
 ## Using package.json
 You can specify your versions using the standard "engines" block in package.json i.e.
 ```javascript
-engines: {
-  node: "0.10.x",
-  npm: "1.2.x"
+"engines": {
+  "node": "0.10.x",
+  "npm": "1.2.x"
 }
 ```
 ## Setting version in the portal
