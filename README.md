@@ -1,7 +1,12 @@
 azure-node-runtime-selector
 ===========================
 
-Custom deployment script for choosing any node or npm version for your Azure Website. Will download the selected versions dynamically during deployment.
+Choose any node or npm version for your Azure Website. Will download the selected versions dynamically during deployment.
+
+# Features
+* non-invasive
+* Supports ANY available node or npm version.
+* Can be configured through package.json or via app settings in the portal / cli.
 
 # How to use
 
