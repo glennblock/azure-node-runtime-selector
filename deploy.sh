@@ -85,7 +85,7 @@ installNodist () {
 
 installNodeAndNpm() {
   cd $NODE_RUNTIME_ROOT/node/nodist/bin
-  SELECT_NODE_VERSION="\"$NODE_EXE\" \"$DEPLOYMENT_TARGET/getVersions.js\""
+  SELECT_NODE_VERSION="\"$NODE_EXE\" \"$DEPLOYMENT_TARGET/conf.js\""
   eval "$SELECT_NODE_VERSION"
   NODE_VERSION=`cat nodeVersion.tmp`
   NPM_VERSION=`cat npmVersion.tmp` 
