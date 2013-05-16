@@ -76,7 +76,7 @@ function createIisNodeWebConfigIfNeeded(sitePath) {
     // Check if web.config exists in the 'repository', if not generate it in 'wwwroot'
     var webConfigPath = path.join(sitePath, 'web.config');
 
-    if (!path.existsSync(webConfigPath)) {
+    //if (!path.existsSync(webConfigPath)) {
         var nodeStartFilePath = getNodeStartFile(sitePath);
         if (!nodeStartFilePath) {
             console.log('Missing server.js/app.js files, web.config is not generated');
@@ -86,7 +86,7 @@ function createIisNodeWebConfigIfNeeded(sitePath) {
         var webConfigContent = template.replace(/{NodeStartFile}/g, nodeStartFilePath);
 
         fs.writeFileSync(webConfigPath, webConfigContent, 'utf8');
-    }
+    //}
 }
 
 function getNodeStartFile(sitePath) {
